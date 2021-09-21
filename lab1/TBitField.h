@@ -8,11 +8,11 @@ using namespace std;
 class TBitField {
 private:
     size_t bitLen;
-    size_t *array;
     size_t arrLen;
+    size_t *array;
 
-    size_t getArrayIndex(const int bitN) const;
-    size_t getArrayMask(const int bitN) const;
+    size_t getArrayIndex(const size_t bitN) const;
+    size_t getArrayMask(const size_t bitN) const;
 
 public:
     TBitField(size_t length);
@@ -29,9 +29,9 @@ public:
     // Binary operations
 
     bool operator==(const TBitField &other);
-    bool operator|(const TBitField &other);
-    bool operator&(const TBitField &other);
-    bool operator~(void);
+    TBitField operator|(const TBitField &other);
+    TBitField operator&(const TBitField &other);
+    TBitField operator~(void);
     friend istream &operator>>(istream &in, TBitField &bf);
     friend ostream &operator<<(ostream &out, TBitField &bf);
 };
