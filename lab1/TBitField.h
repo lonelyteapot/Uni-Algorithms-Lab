@@ -11,8 +11,8 @@ private:
     size_t arrLen;
     size_t *array;
 
-    size_t getArrayIndex(const size_t bitN) const;
-    size_t getArrayMask(const size_t bitN) const;
+    static size_t getArrayIndex(size_t bitN) ;
+    static size_t getArrayMask(size_t bitN) ;
 
 public:
     TBitField(size_t length);
@@ -31,9 +31,9 @@ public:
     bool operator==(const TBitField &other);
     TBitField operator|(const TBitField &other);
     TBitField operator&(const TBitField &other);
-    TBitField operator~(void);
+    TBitField operator~();
     friend istream &operator>>(istream &in, TBitField &bf);
-    friend ostream &operator<<(ostream &out, TBitField &bf);
+    friend ostream &operator<<(ostream &out, const TBitField &bf);
 };
 
 #endif

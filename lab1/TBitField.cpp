@@ -4,11 +4,11 @@ using namespace std;
 
 // Private methods
 
-size_t TBitField::getArrayIndex(const size_t bitN) const {
+size_t TBitField::getArrayIndex(const size_t bitN) {
     return bitN / (sizeof(size_t) * CHAR_BIT);
 }
 
-size_t TBitField::getArrayMask(const size_t bitN) const {
+size_t TBitField::getArrayMask(const size_t bitN) {
     const size_t localBitN = bitN % (sizeof(size_t) * CHAR_BIT);
     return 1U << localBitN;
 }
@@ -108,10 +108,9 @@ istream &operator>>(istream &in, TBitField &bf) {
     return in;
 }
 
-ostream &operator<<(ostream &out, TBitField &bf) {
+ostream &operator<<(ostream &out, const TBitField &bf) {
     for (size_t i = 0; i < bf.bitLen; ++i) {
         out << "01"[bf.getBit(i)];
     }
-    out << endl;
     return out;
 }
