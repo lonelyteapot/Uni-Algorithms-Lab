@@ -9,17 +9,17 @@ private:
     TBitField bitField;
 
 public:
-    TSet(const size_t maxSize);
+    TSet(size_t maxSize);
     TSet(const TSet &set);
     TSet(const TBitField &bf);
     operator TBitField();
 
-    void insert(const int elem);
-    void remove(const int elem);
-    bool contains(const int elem) const;
+    void insert(const size_t elem);
+    void remove(const size_t elem);
+    bool contains(const size_t elem) const;
 
-    TSet operator+(const int elem);
-    TSet operator-(const int elem);
+    TSet operator+(const size_t elem);
+    TSet operator-(const size_t elem);
 
     bool operator==(const TSet &other);
     TSet operator+(const TSet &other);
@@ -29,6 +29,5 @@ public:
     friend istream &operator>>(istream &in, TSet &set);
     friend ostream &operator<<(ostream &out, const TSet &set);
 };
-
 
 #endif
