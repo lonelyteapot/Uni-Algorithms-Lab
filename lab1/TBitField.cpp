@@ -21,6 +21,9 @@ TBitField::TBitField(size_t length) {
     bitLen = length;
     arrLen = getArrayIndex(bitLen-1) + 1;
     array = new size_t[arrLen];
+    for (size_t i = 0; i < arrLen; ++i) {
+        array[i] = 0;
+    }
 }
 
 TBitField::TBitField(const TBitField &bf) {
