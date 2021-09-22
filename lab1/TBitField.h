@@ -28,10 +28,13 @@ public:
 
     // Binary operations
 
+    TBitField &operator=(const TBitField &other);
+
     bool operator==(const TBitField &other);
     TBitField operator|(const TBitField &other);
     TBitField operator&(const TBitField &other);
     TBitField operator~();
+
     friend istream &operator>>(istream &in, TBitField &bf);
     friend ostream &operator<<(ostream &out, const TBitField &bf);
 };

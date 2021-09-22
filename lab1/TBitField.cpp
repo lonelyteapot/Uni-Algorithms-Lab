@@ -55,6 +55,18 @@ bool TBitField::getBit(size_t bitN) const {
 
 // Binary operations
 
+TBitField &TBitField::operator=(const TBitField &other) {
+    if (&other != this) {
+        bitLen = other.bitLen;
+        arrLen = other.arrLen;
+        delete[] array;
+        array = new size_t[arrLen];
+        for (size_t i = 0; i < arrLen; ++i)
+            array[i] = other.array[i];
+    }
+    return *this;
+}
+
 bool TBitField::operator==(const TBitField &other) {
     if (bitLen != other.bitLen)
         return false;
